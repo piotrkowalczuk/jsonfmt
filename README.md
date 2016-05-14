@@ -17,6 +17,33 @@ With `-w` flag it overwrites given file or files found in directory.
 ```
 $ jsonfmt -w .
 ```
+
+Using jsonfmt with standard input is straightforward.
+
+```
+$ echo '{"b":[    {"firstName":"John", "lastName":"Doe"},    {"firstName":"Anna", "lastName":"Smith"},    {"firstName":"Peter", "lastName":"Jones"}], "a": [3,2,1]}' | jsonfmt
+$ {
+	"a": [
+		3,
+		2,
+		1
+	],
+	"b": [
+		{
+			"firstName": "John",
+			"lastName": "Doe"
+		},
+		{
+			"firstName": "Anna",
+			"lastName": "Smith"
+		},
+		{
+			"firstName": "Peter",
+			"lastName": "Jones"
+		}
+	]
+}
+```
 ## Flags
 
 * `-w` do not print reformatted sources to standard output. If a file's formatting is different from jsonfmt's, overwrite it with jsonfmt's version.
